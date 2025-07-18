@@ -33,3 +33,13 @@ A modular, production-ready microservice for generating creative German song tit
   - Mystic Dubplate
   - Heavy Roots Vibration
 ```
+
+## ⚙️ Usage
+
+```bash
+make start    # Start server (Development)
+make dev      # Server with all hosts
+make prod     # Production server
+make install  # Install dependencies
+make clean    # Delete cache files
+```
