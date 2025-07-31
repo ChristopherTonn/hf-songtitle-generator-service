@@ -49,7 +49,7 @@ def check_title_makes_sense(title: str, genre: str) -> bool:
         if word1 in words and word2 in words:
             return False
     
-    # Genre-Konsistenz
+    # Genre consistency
     genre_conflicts = {
         "ambient": ["aggressive", "brutal", "violent", "harsh", "loud"],
         "hardcore": ["peaceful", "calm", "gentle", "soft", "quiet"],
