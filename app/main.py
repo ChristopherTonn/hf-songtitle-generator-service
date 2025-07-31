@@ -26,54 +26,46 @@ custom_word_options = [
 print("🎶 Generating 100 Example Song Titles:")
 print()
 
-for i in range(100):
-    # Select random genre
-    genre = random.choice(available_genres)
-    
-    # Select random mood
-    mood = random.choice(default_moods)
-    
-    # Select 1-3 random custom words
-    num_custom_words = random.randint(1, 3)
-    custom_words = random.sample(custom_word_options, num_custom_words)
-    
-    # Generate the song title
-    title = generate_song_title(
-        genre=genre,
-        mood=mood,
-        custom_words=custom_words
-    )
-    
-    # Print the title with metadata
-    # print(f"{i+1}. Genre: {genre}, Mood: {mood}")
-    # print(f"   Custom Words: {', '.join(custom_words)}")
-    # print(f"   Title : {title}")
-    # print()
+def generate_and_print_titles(num_titles, print_metadata=False):
+    demo_title_no_sub = None
+    for i in range(num_titles):
+        # Select random genre
+        genre = random.choice(available_genres)
+        
+        # Select random mood
+        mood = random.choice(default_moods)
+        
+        # Select 1-3 random custom words
+        num_custom_words = random.randint(1, 3)
+        custom_words = random.sample(custom_word_options, num_custom_words)
+        
+        # Generate the song title
+        title = generate_song_title(
+            genre=genre,
+            mood=mood,
+            custom_words=custom_words
+        )
+        
+        # Print the title with or without metadata
+        if print_metadata:
+            print(f"{i+1}. Genre: {genre}, Mood: {mood}")
+            print(f"   Custom Words: {', '.join(custom_words)}")
+            print(f"   Title : {title}")
+            print()
+        else:
+            print(f"{i+1}. {title}")
+        
+        # Keep track of the last title
+        demo_title_no_sub = title
+    return demo_title_no_sub
 
-# Keep last generated title for the existing print statement
-# Store last generated title for the demo
-demo_title_no_sub = title
+print("🎶 Generating 100 Example Song Titles:")
+print()
+demo_title_no_sub = generate_and_print_titles(100, print_metadata=True)
 
-# Modify the print statements in the loop to only show titles
-for i in range(100):
-    # Select random genre
-    genre = random.choice(available_genres)
-    mood = random.choice(default_moods)
-    num_custom_words = random.randint(1, 3)
-    custom_words = random.sample(custom_word_options, num_custom_words)
-    
-    # Generate the song title
-    title = generate_song_title(
-        genre=genre,
-        mood=mood,
-        custom_words=custom_words
-    )
-    
-    # Print only the title
-    print(f"{i+1}. {title}")
-    
-    # Keep track of the last title
-    demo_title_no_sub = title
+print("🎶 Generating 100 Example Song Titles (Titles Only):")
+print()
+demo_title_no_sub = generate_and_print_titles(100, print_metadata=False)
 
 # print("🎶 Generated Song Title:" )
 # print(demo_title_no_sub)
