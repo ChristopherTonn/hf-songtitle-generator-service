@@ -1,13 +1,13 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from app.core.title_generator import generate_song_title
 
 router = APIRouter()
 
 class GenerateTitleRequest(BaseModel):
     genre: str
-    mood: str = None
+    mood: Optional[str] = None
     custom_words: List[str] = None
 
 class GenerateTitleResponse(BaseModel):
