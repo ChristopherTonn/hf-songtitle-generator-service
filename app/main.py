@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from app.api.endpoints.generate import router as generate_router
+from app.api.endpoints.metadata import router as metadata_router
 
 
 app = FastAPI(
@@ -8,3 +9,4 @@ app = FastAPI(
     version="1.0.0")
 
 app.include_router(generate_router, prefix="/generate", tags=["Generate"])
+app.include_router(metadata_router, prefix="/metadata", tags=["Metadata"])
