@@ -32,8 +32,6 @@ def test_get_metadata():
     for mood in expected_moods:
         assert mood in data["moods"]
     
-    print(f"✅ Available genres: {data['genres']}")
-    print(f"✅ Available moods: {data['moods']}")
 
 def test_metadata_genres_sorted():
     """Test that genres are returned sorted."""
